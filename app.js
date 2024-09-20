@@ -87,9 +87,9 @@ process.on('unhandledRejection', (err) => {
 });
 
 // Uncomment for local server deployment
-// const PORT = process.env.PORT || 8000;
-// const server = app.listen(PORT, () => {
-//   console.log(`Listening to server on port ${PORT}`);
-// });
+const PORT = process.env.PORT || 8000;
+const server = app.listen(PORT, () => {
+  console.log(`Listening to server on port ${PORT}`);
+});
 
-exports.api = functions.https.onRequest(app);
+// exports.api = functions.https.onRequest(app);
