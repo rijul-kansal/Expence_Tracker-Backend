@@ -1,10 +1,12 @@
 const express = require('express');
 const AuthController = require('./../Controller/AuthController');
+const ExtController = require('./../Controller/External');
 const UserController = require('./../Controller/UserController');
 const FireBaseController = require('./../Controller/FirebaseController');
 
 const router = express.Router();
 
+router.route('/generalAPI').post(ExtController.generalApi);
 router.route('/signUp').post(AuthController.signUp);
 router.route('/verifyEmail').post(AuthController.verifyEmail);
 router.route('/login').post(AuthController.login);
