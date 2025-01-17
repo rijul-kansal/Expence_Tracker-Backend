@@ -6,7 +6,7 @@ const FireBaseController = require('./../Controller/FirebaseController');
 
 const router = express.Router();
 
-router.route('/generalAPI').post(ExtController.generalApi);
+router.route('/generalAPI').get(ExtController.generalApi);
 router.route('/signUp').post(AuthController.signUp);
 router.route('/verifyEmail').post(AuthController.verifyEmail);
 router.route('/login').post(AuthController.login);
