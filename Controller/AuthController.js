@@ -175,7 +175,6 @@ const login = async (req, res, next) => {
       status: 'success',
       message: 'successfully login',
       token,
-      refreshToken:refreshTokenToken,
       data: {
         data: user,
       },
