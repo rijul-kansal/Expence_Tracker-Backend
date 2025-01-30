@@ -165,7 +165,7 @@ const login = async (req, res, next) => {
       { id: user[0].email },
       process.env.JWT_KEY,
       {
-        expiresIn: '10d',
+        expiresIn: '3650d',
       }
     );
     user[0].password = undefined;
@@ -175,6 +175,7 @@ const login = async (req, res, next) => {
       status: 'success',
       message: 'successfully login',
       token,
+      refreshToken:refreshTokenToken,
       data: {
         data: user,
       },
