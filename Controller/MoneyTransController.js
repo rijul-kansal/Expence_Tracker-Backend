@@ -83,10 +83,29 @@ const deleteTransById = async (req, res, next) => {
     };
     res.status(204).json(response);
   } catch (err) {
-    errorMessage(err, 400, res, next);
+    
   }
 };
+const deleteAllTrans = async(req,res,next)=>{
+   try{
+    const bookId = req.params.id;
+    const bookPresent = await BookName.findById(bookId);
+    if(!bookPresent )
+    {
+        return next(new AppError('Please check bookId',400));
+    }
 
+    await MoneyTrans.deleteMany({bookId});
+    const response = {
+      status: 'success',
+      message:"Successfully delete all entries",
+    };
+    res.status(204).json(response);
+
+   }catch(err){
+    errorMessage(err, 400, res, next);
+   }
+}
 const getTransForParticularBook = async (req, res, next) => {
   try {
     const email = req.user.email;
@@ -350,4 +369,5 @@ module.exports = {
   updateTrans,
   downloadTrans,
   transBasedOnCategory,
+  deleteAllTrans,
 };

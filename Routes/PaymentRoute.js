@@ -9,5 +9,4 @@ router
   .route('/')
   .post(PaymentController.addDataToDb)
   .get(PaymentController.history);
-
 module.exports = router;

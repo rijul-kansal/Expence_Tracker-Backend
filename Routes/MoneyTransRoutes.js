@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.route('/download/:id').get(moneyTransController.downloadTrans);
 router.use(AuthController.protectedEndPoint);
+router.route('/deleteAllTrans/:id').delete(moneyTransController.deleteAllTrans);
 router
   .route('/:id')
   .post(moneyTransController.addTrans)
